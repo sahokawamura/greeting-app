@@ -9,7 +9,7 @@
 
 <body>
   <h1>{{ $type }}</h1>
-  <h2>{{ $comments ?? '' }}</h2>
+  <h2>{{ $comments }}</h2>
 
 </body>
 

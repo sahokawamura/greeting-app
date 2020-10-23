@@ -17,5 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('comments/{type}', 'CommentsController@show');
-Route::get('comments/{type}/{comments}', 'CommentsController@freeword');
+Route::get('comments/{type}/{comments?}', 'CommentsController@show');
