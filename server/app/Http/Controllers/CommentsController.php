@@ -8,30 +8,31 @@ class CommentsController extends Controller
 {
     public function show($type) 
     {
+      $greeting = ['朝のあいさつ', '昼のあいさつ','夕方のあいさつ', '夜のあいさつ', 'ランダムなメッセージ','表示できません'];
+      $comments = ['おはようございます', 'こんにちは', 'こんばんは', 'おやすみ'];
+
       if ($type == 'morning') {
-        return view('comments.show', ['type' => $type = '朝のあいさつ', 'comments' => 'おはようございます']);
+        return view('comments.show', ['type' => $greeting[0], 'comments' => $comments[0]]);
       } elseif ($type == 'afternoon') {
-        return view('comments.show', ['type' => $type = '昼のあいさつ', 'comments' => 'こんにちは']);
+        return view('comments.show', ['type' => $greeting[1], 'comments' => $comments[1]]);
       } elseif ($type == 'evening') {
-        return view('comments.show', ['type' => $type = '夕方のあいさつ', 'comments' => 'こんばんは']);
+        return view('comments.show', ['type' => $greeting[2], 'comments' => $comments[2]]);
       } elseif ($type == 'night') {
-        return view('comments.show', ['type' => $type = '夜のあいさつ', 'comments' => 'おやすみ']);
+        return view('comments.show', ['type' => $greeting[3], 'comments' => $comments[3]]);
       } elseif ($type == 'random') {
-        $comments = ['おはよう', 'こんにちは', 'こんばんは', 'おやすみ'];
-        shuffle($comments);
-        foreach ($comments as $comment);
-        return view('comments.show', ['type' => $type = 'ランダムなメッセージ', 'comments' => $comment]);
+        $notes = ['おはよう', 'こんにちは', 'こんばんは', 'おやすみ'];
+        shuffle($notes);
+        foreach ($notes as $note);
+        return view('comments.show', ['type' => $greeting[4],'comments' => $note]);
       } else {
-        return view('comments.show', ['type' => $type = '表示できません']);
+        return view('comments.show', ['type' => $greeting[5]]);
       }
     }
 
-    public function showmore($type, $comments)
+    public function freeword($type, $comments)
     {
       if ($type == 'freeword') {
-        return view('comments.show', ['type' => $type = '自由なメッセージ', 'comments' => $comments]);
-      }  else {
-        return view('comments.show', ['type' => $type = '表示できません']);
-      }
+        return view('comments.show', ['type' => '自由なメッセージ', 'comments' => $comments]);
+      }  
     }
-}
+} 

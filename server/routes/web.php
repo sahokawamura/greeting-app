@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('comments/{type}', 'CommentsController@show');
-Route::get('comments/{type}/{comments}', 'CommentsController@showmore');
+Route::get('comments/{type}/{comments}', 'CommentsController@freeword');
